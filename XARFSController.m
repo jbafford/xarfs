@@ -32,11 +32,16 @@
 #import "xarfs.h"
 #import <MacFUSE/GMUserFileSystem.h>
 
+@interface XARFSController()
+
+@property (nonatomic, retain) XARFS *xarfs;
+@end
+
 @implementation XARFSController
 
 - (BOOL) mount
 {
-	XARFS* xarfs = [XARFS fromXARFile:xarFileName];
+	self.xarfs = [XARFS createFromXARFile:xarFileName];
 	
 	NSString *xarName = [xarFileName lastPathComponent];
 	
@@ -51,7 +56,7 @@
 	
 	NSString *mountPoint = [NSString stringWithFormat:@"/Volumes/xarfs_%@", xarName];
 	
-	fs_ = [[GMUserFileSystem alloc] initWithDelegate:xarfs isThreadSafe:YES];
+	fs_ = [[GMUserFileSystem alloc] initWithDelegate:self.xarfs isThreadSafe:YES];
 	[fs_ mountAtPath:mountPoint withOptions:options];
 	
 	return YES;
@@ -60,9 +65,9 @@
 -(void)unmount
 {
 	[fs_ unmount];
-	id delegate = [fs_ delegate];
 	[fs_ release];
-	[delegate release];
+	
+	self.xarfs = nil;
 }
 
 #pragma mark -
@@ -92,9 +97,9 @@
 	[super dealloc];
 }
 
-+(id)fromXARFile:(NSString*) fileName
++ (id)controllerFromXARFile:(NSString*) fileName
 {
-	return [[XARFSController alloc] initWithXARFile:fileName];
+	return [[[self alloc] initWithXARFile:fileName] autorelease];
 }
 
 @end

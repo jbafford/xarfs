@@ -38,7 +38,7 @@
 
 - (XARDirectoryItem*) getItemAtPath: (NSString*) path;
 
-+ (XARDirectoryStructure*) fromXAR: (xar_t) xar;
++ (XARDirectoryStructure*)createFromXAR: (xar_t) xar;
 
 - (id)initWithXAR: (xar_t) xar;
 - (void) dealloc;

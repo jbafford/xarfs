@@ -41,6 +41,6 @@
 -(void)unmount;
 
 -(id)initWithXARFile:(NSString*)fileName;
-+(id)fromXARFile:(NSString*)fileName;
++ (id)controllerFromXARFile:(NSString*)fileName;
 
 @end

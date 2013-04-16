@@ -106,9 +106,9 @@
 	[super dealloc];
 }
 
-+ (XARDirectoryStructure*) fromXAR: (xar_t) xar
++ (XARDirectoryStructure*) createFromXAR: (xar_t) xar
 {
-	return [[XARDirectoryStructure alloc] initWithXAR:xar];
+	return [[[XARDirectoryStructure alloc] initWithXAR:xar] autorelease];
 }
 
 

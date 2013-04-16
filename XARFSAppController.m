@@ -39,11 +39,10 @@
 
 -(BOOL)mountXARFile:(NSString*)filename
 {
-	XARFSController *xarfsController = [XARFSController fromXARFile:filename];
+	XARFSController *xarfsController = [XARFSController controllerFromXARFile:filename];
 	
 	if([xarfsController mount])
 	{
-		[xarfsController retain];
 		[mounts setValue:xarfsController forKey:filename];
 		
 		NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
@@ -54,8 +53,6 @@
 	}
 	else
 	{
-		[xarfsController release];
-		
 		return NO;
 	}
 }

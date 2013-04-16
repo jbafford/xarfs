@@ -136,7 +136,7 @@
 		
 		if(xar_)
 		{
-			xarContents_ = [XARDirectoryStructure fromXAR:xar_];
+			xarContents_ = [[XARDirectoryStructure createFromXAR:xar_] retain];
 			valid_ = YES;
 		}
 		else
@@ -155,9 +155,9 @@
 	[super dealloc];
 }
 
-+(id)fromXARFile:(NSString*)fileName
++ (id)createFromXARFile:(NSString*)fileName
 {
-	return [[XARFS alloc] initWithXARFile:fileName];
+	return [[[XARFS alloc] initWithXARFile:fileName] autorelease];
 }
 
 @end

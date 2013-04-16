@@ -42,7 +42,7 @@
 
 - (BOOL) valid;
 
-+(id)fromXARFile:(NSString*)fileName;
++ (id)createFromXARFile:(NSString*)fileName;
 -(id)initWithXARFile:(NSString*)fileName;
 
 @end
