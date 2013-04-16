@@ -43,7 +43,8 @@
 	
 	if(dir && ((itemType = [dir fileType]) == NSFileTypeDirectory))
 	{
-		*error = nil;
+		if(error)
+			*error = nil;
 		
 		return [dir getContentNames];
 	}
@@ -56,7 +57,8 @@
 		else
 			err = ENOTDIR;
 		
-		*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil];
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil];
 		
 		return nil;
 	}
@@ -77,8 +79,9 @@
 	else
 	{
 		//NSLog(@"attributesOfItemAtPath: no file: %@\n", path);
-
-		*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOENT userInfo:nil];
+		
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:ENOENT userInfo:nil];
 		
 		return nil;
 	}
