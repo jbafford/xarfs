@@ -45,7 +45,7 @@
 	//Make a fake item for /
 	[contents setValue: [XARDirectoryItem createFakeRoot] forKey: @"/"];
 	
-	xar_iter_t i = xar_iter_new(xar);
+	xar_iter_t i = xar_iter_new();
 	if(i)
 	{
 		xar_file_t f;
