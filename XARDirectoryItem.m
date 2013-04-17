@@ -61,11 +61,17 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 	return [NSDate dateWithTimeIntervalSince1970: timegm(&t)];
 }
 
+@interface XARDirectoryItem() {
+	BOOL _isFakeRoot;
+	char *_fPath; //cached result of xar_get_path; we must release
+}
+@end
+
 @implementation XARDirectoryItem
 
-- (char*) getPath
+- (char*)getPath
 {
-	return fPath_;
+	return _fPath;
 }
 
 - (NSString*) fileType
@@ -161,9 +167,11 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 	{
 		[self basicInit];
 		
+		_isFakeRoot = YES;
+		
 		fName_ = "/";
 		fileName_ = @"/";
-		fPath_ = "/";
+		_fPath = "/";
 		fType_ = NSFileTypeDirectory;
 		
 		contents_ = [[NSMutableDictionary dictionaryWithCapacity: 1] retain];
@@ -183,7 +191,7 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 		
 		xarFile_ = xarFile;
 		
-		fPath_ = xar_get_path(xarFile);
+		_fPath = xar_get_path(xarFile);
 		
 		res = xar_prop_get(xarFile, "name", &fName_);
 		fileName_ = [[NSString stringWithUTF8String: fName_] retain];
@@ -219,7 +227,8 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 
 - (void)dealloc
 {
-	free(fPath_);
+	if(!_isFakeRoot)
+		free(_fPath);
 	
 	if(contents_)
 		[contents_ release];
@@ -232,9 +241,9 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 	return [[XARDirectoryItem alloc] initWithXARFile:xarFile];
 }
 
-+ (XARDirectoryItem*) createFakeRoot;
++ (XARDirectoryItem*)createFakeRoot;
 {
-	return [[XARDirectoryItem alloc] initAsFakeRoot];
+	return [[[XARDirectoryItem alloc] initAsFakeRoot] autorelease];
 }
 
 @end

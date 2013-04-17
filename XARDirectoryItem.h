@@ -37,7 +37,6 @@
 	
 	const char *fName_;
 	NSString *fileName_;
-	char *fPath_;
 	NSString* fType_;
 	UInt64 fileSize_;
 	const char *fMode_;
@@ -49,7 +48,7 @@
 	NSDictionary *fileAttributes_;
 }
 
-- (char*) getPath;
+- (char*)getPath;
 - (NSString*) fileType;
 - (UInt64) fileSize;
 - (void) addContents: (XARDirectoryItem *) dirItem;
@@ -59,6 +58,6 @@
 
 - (id)initWithXARFile: (xar_file_t) xarFile;
 + (XARDirectoryItem*) fromXARFile: (xar_file_t) xarFile;
-+ (XARDirectoryItem*) createFakeRoot;
++ (XARDirectoryItem*)createFakeRoot;
 
 @end
