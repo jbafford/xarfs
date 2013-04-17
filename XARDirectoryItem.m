@@ -236,9 +236,9 @@ NSDate* makeNSDateFromXARDate(const char *xarDate)
 	[super dealloc];
 }
 
-+ (XARDirectoryItem*) fromXARFile: (xar_file_t) xarFile
++ (XARDirectoryItem*)createFromXARFile:(xar_file_t)xarFile
 {
-	return [[XARDirectoryItem alloc] initWithXARFile:xarFile];
+	return [[[XARDirectoryItem alloc] initWithXARFile:xarFile] autorelease];
 }
 
 + (XARDirectoryItem*)createFakeRoot;

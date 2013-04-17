@@ -57,7 +57,7 @@
 - (xar_file_t) getXARFile;
 
 - (id)initWithXARFile: (xar_file_t) xarFile;
-+ (XARDirectoryItem*) fromXARFile: (xar_file_t) xarFile;
++ (XARDirectoryItem*)createFromXARFile:(xar_file_t)xarFile;
 + (XARDirectoryItem*)createFakeRoot;
 
 @end

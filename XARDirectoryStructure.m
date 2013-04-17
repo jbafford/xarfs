@@ -55,7 +55,7 @@
 		
 		for(f = xar_file_first(xar, i); f; f = xar_file_next(i))
 		{
-			XARDirectoryItem *xarItem = [XARDirectoryItem fromXARFile: f];
+			XARDirectoryItem *xarItem = [XARDirectoryItem createFromXARFile:f];
 			
 			path = [xarItem getPath];
 			parentPath = dirname(path);
