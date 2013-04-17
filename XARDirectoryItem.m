@@ -1,6 +1,6 @@
 /*
 	xarfs
-	Copyright (c) 2008 - 2009, John Bafford
+	Copyright (c) 2008 - 2013, John Bafford
 	http://bafford.com/software/xarfs/
 	All rights reserved.
 	
