@@ -31,7 +31,7 @@
 #import "XARFSAppController.h"
 #import "XARFSController.h"
 #import "xarfs.h"
-#import <MacFUSE/GMUserFileSystem.h>
+#import <OSXFUSE/GMUserFileSystem.h>
 
 @implementation XARFSAppController
 

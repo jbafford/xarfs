@@ -10,7 +10,6 @@
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		F42C5F500D8DAB65001ECD8D /* MacFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42C5F4F0D8DAB65001ECD8D /* MacFUSE.framework */; };
 		F42C5F7C0D8DACE7001ECD8D /* xarfs.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C5F770D8DACC7001ECD8D /* xarfs.m */; };
 		F42C5F7D0D8DACE9001ECD8D /* XARFSController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C5F790D8DACC7001ECD8D /* XARFSController.m */; };
 		F42C5FAE0D8DAD80001ECD8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42C5FAD0D8DAD80001ECD8D /* Cocoa.framework */; };
@@ -20,6 +19,7 @@
 		F42C62B30D8DCBE3001ECD8D /* XARDirectoryStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C62B20D8DCBE3001ECD8D /* XARDirectoryStructure.m */; };
 		F42C62D60D8DCF55001ECD8D /* XARDirectoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C62D50D8DCF55001ECD8D /* XARDirectoryItem.m */; };
 		F42C692A0D8E1D9D001ECD8D /* XARFSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C69280D8E1D9D001ECD8D /* XARFSAppController.m */; };
+		F480F4BD171F4FB5004D1910 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F480F4BC171F4FB5004D1910 /* OSXFUSE.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		32CA4F630368D1EE00C91783 /* xarfs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xarfs_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* xarfs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xarfs.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F42C5F4F0D8DAB65001ECD8D /* MacFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacFUSE.framework; path = /Library/Frameworks/MacFUSE.framework; sourceTree = "<absolute>"; };
 		F42C5F760D8DACC7001ECD8D /* xarfs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xarfs.h; sourceTree = "<group>"; };
 		F42C5F770D8DACC7001ECD8D /* xarfs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xarfs.m; sourceTree = "<group>"; };
 		F42C5F780D8DACC7001ECD8D /* XARFSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XARFSController.h; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		F42C62D50D8DCF55001ECD8D /* XARDirectoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XARDirectoryItem.m; sourceTree = "<group>"; };
 		F42C69280D8E1D9D001ECD8D /* XARFSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XARFSAppController.m; sourceTree = "<group>"; };
 		F42C69290D8E1D9D001ECD8D /* XARFSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XARFSAppController.h; sourceTree = "<group>"; };
+		F480F4BC171F4FB5004D1910 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = ../../../../Library/Frameworks/OSXFUSE.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +54,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F42C5F500D8DAB65001ECD8D /* MacFUSE.framework in Frameworks */,
 				F42C5FAE0D8DAD80001ECD8D /* Cocoa.framework in Frameworks */,
 				F42C5FB20D8DAD88001ECD8D /* Carbon.framework in Frameworks */,
 				F42C607C0D8DADE2001ECD8D /* Accelerate.framework in Frameworks */,
 				F42C616F0D8DB569001ECD8D /* libxar.1.dylib in Frameworks */,
+				F480F4BD171F4FB5004D1910 /* OSXFUSE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F42C5F4F0D8DAB65001ECD8D /* MacFUSE.framework */,
+				F480F4BC171F4FB5004D1910 /* OSXFUSE.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,

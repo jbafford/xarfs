@@ -30,7 +30,7 @@
 
 #import "XARFSController.h"
 #import "xarfs.h"
-#import <MacFUSE/GMUserFileSystem.h>
+#import <OSXFuse/GMUserFileSystem.h>
 
 @interface XARFSController()
 
