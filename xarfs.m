@@ -64,7 +64,7 @@
 	}
 }
 
-- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error
+- (NSDictionary *)attributesOfItemAtPath:(NSString *)path userData:(id)userData error:(NSError **)error
 {
 	XARDirectoryItem *item = [xarContents_ getItemAtPath: path];
 	
